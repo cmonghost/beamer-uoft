@@ -1,0 +1,13 @@
+.DS_store
+*~
+*.aux
+*.log
+*.bbl
+*.blg
+*.gz
+*.dvi
+*.toc
+*.out
+*.snm
+*.nav
+*.m
