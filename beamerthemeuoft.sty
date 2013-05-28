@@ -1,7 +1,4 @@
 %
-% Copyright (c) 2011 
-% Manuel Vonthron - <manuel DOT vonthron AT acadis DOT org>
-%
 % This file may be distributed and/or modified under the terms of 
 % the Do What The Fuck You Want To Public License, Version 2
 % 
@@ -12,6 +9,8 @@
 
 \RequirePackage[scriptsize,it]{caption}
 \captionsetup{labelformat=empty,labelsep=none}
+
+\providecommand\insertframetitle{} 
 
 \mode<presentation>
 
@@ -34,9 +33,10 @@
 \DeclareOptionBeamer{titlepagelayout}[]{\def\beamer@uoft@titlepagelayout{#1}}
 \DeclareOptionBeamer{menuwidth}[]{\setlength{\beamer@uoft@menuwidth}{#1}}
 
+
 \ProcessOptionsBeamer
 
-\setlength{\beamer@uoft@restofmenuwidth}{0.95\paperwidth}
+\setlength{\beamer@uoft@restofmenuwidth}{0.55\paperwidth}
 \addtolength\beamer@uoft@restofmenuwidth{-\beamer@uoft@menuwidth}
 
 
@@ -83,24 +83,27 @@
 }
 
 % HEADER
+%\begin{comment}
 \defbeamertemplate*{headline}{uoft}%
 {
   \begin{beamercolorbox}[wd=\paperwidth,leftskip=1em,sep=0.6em]{headerline title}
-    \begin{minipage}{\beamer@uoft@restofmenuwidth}
-        {\tiny{\bfseries University of Toronto}}%
-    \end{minipage}
-    \hspace{0px}
-    \begin{minipage}{\beamer@uoft@menuwidth}
-      \begin{flushright}
-        \insertsectionnavigationhorizontal{\beamer@uoft@menuwidth}{}{}
-      \end{flushright}
-    \end{minipage}
-    
+    %\begin{minipage}{\beamer@uoft@restofmenuwidth} %{\beamer@uoft@frametitle}
+        %{\tiny{\bfseries {\insertframetitle{}} }}%
+    %\end{minipage}
+    \insertframetitle{}
+    %\hspace{0px}
+    %\begin{minipage}{\beamer@uoft@menuwidth}
+      %\begin{flushright}
+        %\insertsectionnavigationhorizontal{\beamer@uoft@menuwidth}{}{}
+      %\end{flushright}
+    %\end{minipage}
+   
   \end{beamercolorbox}
   \begin{beamercolorbox}[wd=\paperwidth,sep=1px]{headerline border}
-    \vspace{1px}
+    %\vspace{1px}
   \end{beamercolorbox}
 }
+%\end{comment}
 
 % FOOTER
 %\begin{comment}
@@ -108,15 +111,16 @@
 {
 %\leavevmode%
   \begin{beamercolorbox}[wd=\paperwidth,leftskip=1em,sep=0.2em]{footerline}
-    \insertshorttitle\;--\;\insertshortauthor \hfill %
+    %\insertshorttitle\;--\;\insertshortauthor \hfill %
+    \insertsectionhead \hfill%
     \ifx\beamer@uoft@numbering\beamer@uoft@value@false\relax\else
-        \insertframenumber/\inserttotalframenumber\;--\; %
+        \insertframenumber/\inserttotalframenumber\;%--\; %
     \fi
-    \ifx\beamer@uoft@url\beamer@uoft@value@empty
-        {\bfseries www.uoft.ca}
-    \else
-        {\bfseries \beamer@uoft@url}
-    \fi
+    %\ifx\beamer@uoft@url\beamer@uoft@value@empty
+    %    {\bfseries www.utoronto.ca}
+    %\else
+    %    {\bfseries \beamer@uoft@url}
+    %\fi
   \end{beamercolorbox}  
 }
 %\end{comment}
@@ -144,7 +148,7 @@
 \defbeamertemplate*{frametitle}{}
 {
   \begin{beamercolorbox}[sep=0ex,ht= 2.5ex, wd=\paperwidth]{}
-    \hspace{2ex}\insertframetitle{} \hspace{1ex}\hrulefill %
+  %  \hspace{2ex}\insertframetitle{} \hspace{1ex}\hrulefill %
   \end{beamercolorbox}%
 }
 
